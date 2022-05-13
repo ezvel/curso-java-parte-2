@@ -1,0 +1,15 @@
+/*Cómo le decimos a esta clase que herede de otra clase?
+ * 
+ * public class Furgoneta extends Coche {
+ * 
+ *  ...
+ *  ...
+ *  ...
+ * }
+ * 
+ * Ahora la clase Coche es superclase
+ * 
+ * */
+public class Furgoneta {
+
+}
