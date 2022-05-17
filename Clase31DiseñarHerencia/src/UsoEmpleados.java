@@ -24,9 +24,35 @@ public class UsoEmpleados {
 		
 		misEmpleados[5] = new Jefe("Carla Rodriguez", 95000, 1999, 5, 26);
 		
-	
+		Jefe jefaFinanzas = (Jefe) misEmpleados[5]; // Casting
+		
+		jefaFinanzas.estableceIncentivo(5000); // Ahora si podemos aplicarle el método de la clase Jefe
+		
+		//Jefe JefeCompras = (Jefe) misEmpleados[2]; //Error <-> un empleado no siempre es un jefe
+		
+		/*
+		
+			Se estableció el incentivo a jefeRRHH luego de instanciar la clase
+			No se estableció el incentivo a Carla Rodrigues que también es jefe
+			Podemos pensar hacerlo de la siguiente manera
+			
+			misEmpleados[5].estableceIncentivo ?? <-> no aparece en el asistente del IDE
+			
+			Porque si bien un jefe es un empleado me permite guardar gracias al polimorfismo el objeto jefe
+			dentro de la superclase. Pero, sin embargo, el método estableceIncentivo no es un método
+			de la superclase que se hereda a jefe, sino es un método de jefe que hereda propiedades de 
+			empleados pero el estableceIncentivo es un método de solamente jefe y que hereda a los objetos
+			que estén por debajo
+			
+			Entoces podemos hacer una refundición o casting para pasar el objeto
+			misEmpleados de tipo Empleado a tipo Jefe:
+			
+			misEmpleados[5] = new Jefe("Carla Rodriguez", 95000, 1999, 5, 26);
+			jefaFinanzas = (Jefe) misEmpleados[5];
+			
+			JefaFinanzas.estableceIncentivo(5000); 
 
-	
+		*/
 	for(int i = 0; i < misEmpleados.length; i++) {
 		
 		misEmpleados[i].subeSueldo(5);
@@ -76,9 +102,11 @@ Fecha de alta: Mon Jun 19 00:00:00 ART 2000
 ID: 1
 
 Nombre: Carla Rodriguez
-Sueldo: 99750.0
+Sueldo: 104750.0
 Fecha de alta: Wed May 26 00:00:00 ART 1999
 ID: 6
+
+
 
 
 

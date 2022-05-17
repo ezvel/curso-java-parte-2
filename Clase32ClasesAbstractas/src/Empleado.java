@@ -1,68 +1,4 @@
 /*
-Clase 31 - Diseño de Herencia. Polimorfismo. Enlazado dinámico
-
-POLIMOSFIRMO
-
-Principio de sustitución
-
-	Podemos utilizar un objeto de una subclase
-	siempre que el programa espere un objeto de la
-	superclase
-	Un objeto se puede comportar de diferente forma
-	dependiendo del contexto. Las variables objeto
-	son polimórficas
-	
-
-Vamos a crear un objeto de la clase jefe
-que hereda de empleado
-
-
-Refundición  de objetos. Clases y métodos final
-
-
-
-
-Un jefe siempre es un empleado     <----> Podemos hacer un casting de un objeto jefe de clase empleado a la clase jefe porque un jefe siempre es un empleado
-Un empleado no siempre es un jefe  <----> No podemos hacer un casting de un  objeto empleado de clase empleado a la clase jefe porque un empleado no siempre es un jefe
-
-Error:
-		
-Jefe JefeCompras = (Jefe) misEmpleados[2]; //Error <-> un empleado no siempre es un jefe
-
-Exception in thread "main" java.lang.ClassCastException: class Empleado cannot be cast to class Jefe (Empleado and Jefe are in unnamed module of loader 'app')
-	at UsoEmpleados.main(UsoEmpleados.java:31)
-
-
-Final
-
-Herencia:
-
-Empleado ----  Jefe
-                    ----- Director 
-                    
-
-"No quiero que ninguna clase más herede de la clase
-Jefe. Ni siquiera director"
-
-Empleado ----  [Jefe]
-                    ***----- Director ****
-
-Declarando la clase cómo final para cortar la 
-cadena de la herencia
-         
-Un programador que crea una clase para la API de JAVA
-y desea que si heredas esa clase y no crees un método
-con el mismo nombre y le des un comportamiento
-diferente lo establecerá cómo final:
-
-Clase calendar:
-
-public final Date getTime();
-
-Clase String
-
-public final class String
-
 
 Herencia. Clases abstractas
 
@@ -124,9 +60,7 @@ de herencia
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class Empleado {
-	
-	private String nombre;
+public class Empleado extends Persona{
 	
 	private double sueldo;
 	
@@ -139,7 +73,7 @@ public class Empleado {
 	
 	public Empleado(String nombre, double sueldo, int año, int mes, int dia) {
 		
-		this.nombre = nombre;
+		super(nombre);
 		
 		this.sueldo = sueldo;
 		
@@ -153,22 +87,16 @@ public class Empleado {
 						
 	}
 	
-	public Empleado(String nombre) {
-		
-		//this.nombre = nombre;
-		this(nombre, 30000, 2000,01,01); //Sigue teniendo un argumento. Pero al utilizar el this hace referencia al constructor que tiene el número de parámetros que tiene el this(--- --- -- -- --)
-		
-	}
-	
-	public String dameNombre() {
-		
-		return nombre;
-		
-	}
 	
 	public int dameId() {
 		
 		return ID;
+		
+	}
+	
+	public String dameDescripcion() {
+		
+		return "Este empleado tiene un id = " + ID + ". Con un sueldo = " + sueldo;
 		
 	}
 	
@@ -180,13 +108,6 @@ public class Empleado {
 	}
 	
 	
-	/*
-	public final double dameSueldo() {
-		
-		return sueldo;
-		
-	}
-	*/
 	
 	public Date dameFechaContrato() {
 		
