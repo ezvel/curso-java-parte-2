@@ -3,4 +3,6 @@
     <fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
     <fullyQualifiedTypeName name="paquete2.Clase1"/>
     <fullyQualifiedTypeName name="paquete1.Clase3"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.awt.Event"/>
 </qualifiedTypeNameHistroy>
